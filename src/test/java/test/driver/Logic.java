@@ -16,12 +16,11 @@ public class Logic extends PageObject {
     }
 
     public void doSearch() {
-        driver.findElement(By.name("q")).sendKeys("selenium" + "\n");
+        driver.findElement(By.name("q")).sendKeys("selenium" + "\n"); // ToDo add annotations for byName and sendKeys
     }
 
     public void assertSearch() {
         Assert.assertTrue(seleniumText.getText().contains("Selenium - Web Browser Automation"));
     }
-
 
 }
