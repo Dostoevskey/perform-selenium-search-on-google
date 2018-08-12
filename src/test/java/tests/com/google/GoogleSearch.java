@@ -1,43 +1,23 @@
 package tests.com.google;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import test.driver.DriveMaster;
+import test.driver.Logic;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
-public class GoogleSearch {
-
-    WebDriver driver;
-
-    @BeforeTest
-    public void start() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
-
-//    public void
-//
-
+public class GoogleSearch extends DriveMaster {
 
     @Test
     public void doFoundSelenium() {
-        driver.get("https://www.google.com/ncr");
-        driver.findElement(By.name("q")).sendKeys("selenium" + "\n");
-        assertTrue((driver.findElement
-                (By.xpath("//*[@class='rc' and contains(.,'https://www.seleniumhq.org/')]"))),"https://www.seleniumhq.org/");
-
+        Logic logic = new Logic(driver);
+        logic.doSearch();
+        logic.assertSearch();
+        logic.doImage();       //Todo Add method doImage.
+        logic.assertSearch();  //Todo update assertSearch to be able to work with two steps in TC.
     }
 
-    @AfterTest
-    public void tearDown() {
-        driver.quit();
-    }
+//  seleniumhq.org
+    //        assertTrue((driver.findElement
+    //        (By.xpath("//*[@class='rc' and contains(.,'https://www.seleniumhq.org/')]"))),"https://www.seleniumhq.org/");
 
 
 }

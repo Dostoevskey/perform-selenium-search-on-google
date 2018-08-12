@@ -1,5 +1,6 @@
 package test.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -7,20 +8,13 @@ import org.testng.annotations.BeforeTest;
 
 public class DriveMaster {
 
-    public static WebDriver driver;
-
-    DriveMaster() {
-    }
+    protected WebDriver driver;
 
     @BeforeTest(alwaysRun = true)
-    public static WebDriver getDriver() {
-
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Igor\\IdeaProject\\drivers\\chromedriver.exe");
-        if (driver == null) {
-            driver = new ChromeDriver();
-        }
-        //driver.get("https://google.com");
-        return driver;
+    public void start() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.get("https://www.google.com/ncr");
     }
 
     @AfterTest(alwaysRun = true)
