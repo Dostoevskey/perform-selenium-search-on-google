@@ -12,7 +12,12 @@ public class GoogleSearch extends DriveMaster {
         logic.doSearch();
         logic.assertSearch();
         logic.doImage();       //Todo Add method doImage.
-        logic.assertSearch();  //Todo update assertSearch to be able to work with two steps in TC.
+        logic.assertSearchByImage(); //Todo update assertSearch to be able to work with two steps in TC.
+//        //logic.doReturnBack();
+//        logic.assertSearch();
+
+        //ToDo Review one more time 'implicit' && 'explicit'
+
     }
 
 //  seleniumhq.org
