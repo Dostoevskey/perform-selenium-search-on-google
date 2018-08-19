@@ -44,6 +44,7 @@ public class Logic extends PageObject {
 
     public void assertSearchByImage() { // this method doesn't work
         Assert.assertTrue(seleniumNameWhenImage.getText().contains("Selenium - Web Browser Automation"));
+        // "#rg_s a:nth-of-type(1) > img"
     }
 
     public void doImage() {
