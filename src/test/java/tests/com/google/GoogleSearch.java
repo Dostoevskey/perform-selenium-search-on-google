@@ -7,7 +7,7 @@ import test.driver.Logic;
 public class GoogleSearch extends DriveMaster {
 
     @Test
-    public void doFoundSelenium() {
+    public void doFoundSelenium() throws InterruptedException {
         Logic logic = new Logic(driver);
         logic.doSearch();
         logic.assertSearch();

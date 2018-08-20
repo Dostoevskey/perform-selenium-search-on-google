@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import static java.lang.Thread.sleep;
+
 public class Logic extends PageObject {
 
     public WebDriverWait webDriverWait;
@@ -16,7 +18,7 @@ public class Logic extends PageObject {
 //    @FindBy(xpath = "//a[contains(@href,'www.seleniumhq.org')]")
     private WebElement seleniumName;
 
-    @FindBy(xpath = "//*[@id='ires' and contains(.,'Selenium - Web Browser Automation')]")
+    @FindBy(css = "div.irc_it span.oedJWe a[href='https://www.seleniumhq.org/']")
 //    @FindBy(xpath = "//a[contains(@href,'www.seleniumhq.org')]")
     private WebElement seleniumNameWhenImage;
 
@@ -41,7 +43,11 @@ public class Logic extends PageObject {
 //      webDriverWait.until(ExpectedConditions.not(ExpectedConditions.visibilityOf()));                      // ToDo: is it necessary?
     }
 
-    public void assertSearchByImage() { // this method doesn't work
+    public void assertSearchByImage() throws InterruptedException { // this method doesn't work
+        //driver.findElement(By.id("i48MSmX01sE18M:")).click();
+        sleep(5000);
+        driver.findElement(By.cssSelector("img[id='i48MSmX01sE18M:']"));
+        //driver.findElement(By.cssSelector("div[id='rg'] div:nth-child(1) div:nth-child(1) a.rg_l"));
         Assert.assertTrue(seleniumNameWhenImage.getText().contains("Selenium - Web Browser Automation"));
         // "#rg_s a:nth-of-type(1) > img"
     }
