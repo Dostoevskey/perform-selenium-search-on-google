@@ -3,7 +3,6 @@ package tests.com.google.site;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -33,8 +32,8 @@ public class TestEngineer {
         driver.findElement(By.cssSelector("#login_link")).click();
         Assert.assertEquals(driver.findElement(By.cssSelector("p[id='result']")).getText(),"This is LOGIN PAGE");
         driver.findElement(By.cssSelector("#login_click")).click();
-        driver.switchTo().alert()...
-        driver.switchTo().frame(WebElement)
+//        driver.switchTo().alert()...
+//        driver.switchTo().frame(WebElement)
         //driver.switchTo().defaultContent();
 
         driver.findElement(By.name("login_field")).sendKeys("Testr");

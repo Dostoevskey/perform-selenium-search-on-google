@@ -34,7 +34,6 @@ public class Logic extends PageObject {
         findByName.sendKeys("selenium" + "\n"); // ToDo add annotations for byName and sendKeys
     }
 
-
     public void assertSearch() { // this method doesn't work
         Assert.assertTrue(seleniumName.getText().contains("Selenium - Web Browser Automation")); //ToDo: There are double 'contains' in method && locator,
 
@@ -49,7 +48,7 @@ public class Logic extends PageObject {
 
     public void doImage() {
         //driver.findElement(By.cssSelector("#hdtb-msb-vis a.q.qs[href*='/search?q=selenium']")).click(); // can't find uniq
-        driver.findElement(By.cssSelector("#hdtb-msb-vis div:nth-child(2) a")).click();
+        driver.findElement(By.cssSelector("#hdtb-msb-vis div:nth-child(3)")).click();
 
         //driver.findElement(By.xpath("//a[contains(@class,'qs') and contains(text(), 'Images')]")).click();
         //                          ("//a[contains(@class,'qs') and contains(text()='Images')]")
