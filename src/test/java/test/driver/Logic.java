@@ -11,6 +11,10 @@ import org.testng.Assert;
 
 public class Logic extends PageObject {
 
+    public Logic(WebDriver driver) {
+        super(driver);
+    }
+
     public WebDriverWait webDriverWait;
 
     @FindBy(xpath = "//*[@id='ires' and contains(.,'Selenium - Web Browser Automation')]")
@@ -24,12 +28,11 @@ public class Logic extends PageObject {
     @FindBy(name = "q")
     private WebElement findByName;
 
-    public Logic(WebDriver driver) {
-        super(driver);
-    }
+    @FindBy(css = "#hdtb-msb-vis div:nth-child(1) a")
+    private WebElement goToAll;
 
     public void doSearch() {
-  //      driver.findElement(By.name("q")).sendKeys("selenium" + "\n"); // ToDo add annotations for byName and sendKeys
+        //      driver.findElement(By.name("q")).sendKeys("selenium" + "\n"); // ToDo add annotations for byName and sendKeys
 //        webDriverWait = new WebDriverWait(driver,10); //ToDo Move to upper to be acceseble from other methods.
 //        webDriverWait.until(ExpectedConditions.presenceOfElementLocated((By) findByName));
         findByName.sendKeys("selenium" + "\n"); // ToDo add annotations for byName and sendKeys
@@ -43,9 +46,10 @@ public class Logic extends PageObject {
     }
 
     public void assertSearchByImage() throws InterruptedException { // this method doesn't work
-        //driver.findElement(By.id("i48MSmX01sE18M:")).click();
-        //webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[id='i48MSmX01sE18M:']")));
+//        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[id='i48MSmX01sE18M:']"))); | java.lang.NullPointerException. Why?
+//        webDriverWait.until(visibilityOfElementLocated(By.cssSelector("img[id='i48MSmX01sE18M:']"))); | java.lang.NullPointerException. Why?
         driver.findElement(By.cssSelector("img[id='i48MSmX01sE18M:']")).click();
+        //driver.findElement(By.id("i48MSmX01sE18M:")).click();
         //driver.findElement(By.cssSelector("div[id='rg'] div:nth-child(1) div:nth-child(1) a.rg_l"));
         Assert.assertTrue(seleniumNameWhenImage.getText().contains("Selenium - Web Browser Automation"));
         // "#rg_s a:nth-of-type(1) > img"
@@ -59,7 +63,10 @@ public class Logic extends PageObject {
         //                          ("//a[contains(@class,'qs') and contains(text()='Images')]")
         //                          ("//a[contains(@class,'qs') and [text()='Images']]")
         //                          ("#hdtb-msb-vis a.q.qs[href*='/search?q=selenium']")
+    }
 
+    public void doReturnToAll() {
+        goToAll.click();
     }
 
 }
