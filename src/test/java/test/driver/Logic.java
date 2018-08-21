@@ -1,14 +1,13 @@
 package test.driver;
 
 //import jdk.jfr.Description;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-import static java.lang.Thread.sleep;
 
 public class Logic extends PageObject {
 
@@ -45,8 +44,8 @@ public class Logic extends PageObject {
 
     public void assertSearchByImage() throws InterruptedException { // this method doesn't work
         //driver.findElement(By.id("i48MSmX01sE18M:")).click();
-        sleep(5000);
-        driver.findElement(By.cssSelector("img[id='i48MSmX01sE18M:']"));
+        //webDriverWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("img[id='i48MSmX01sE18M:']")));
+        driver.findElement(By.cssSelector("img[id='i48MSmX01sE18M:']")).click();
         //driver.findElement(By.cssSelector("div[id='rg'] div:nth-child(1) div:nth-child(1) a.rg_l"));
         Assert.assertTrue(seleniumNameWhenImage.getText().contains("Selenium - Web Browser Automation"));
         // "#rg_s a:nth-of-type(1) > img"
@@ -54,7 +53,7 @@ public class Logic extends PageObject {
 
     public void doImage() {
         //driver.findElement(By.cssSelector("#hdtb-msb-vis a.q.qs[href*='/search?q=selenium']")).click(); // can't find uniq
-        driver.findElement(By.cssSelector("#hdtb-msb-vis div:nth-child(3)")).click();
+        driver.findElement(By.cssSelector("#hdtb-msb-vis div:nth-child(3) a")).click();
 
         //driver.findElement(By.xpath("//a[contains(@class,'qs') and contains(text(), 'Images')]")).click();
         //                          ("//a[contains(@class,'qs') and contains(text()='Images')]")
