@@ -2,27 +2,22 @@ package tests.com.google;
 
 import org.testng.annotations.Test;
 import test.driver.DriveMaster;
-import test.driver.Logic;
+import test.driver.TestLogic;
 
 public class GoogleSearch extends DriveMaster {
 
     @Test
     public void doFoundSelenium() throws InterruptedException {
-        Logic logic = new Logic(driver);
-        logic.doSearch();
-        logic.assertSearch();
-        logic.doImage();       //Todo Add method doImage.
-        logic.assertSearchByImage(); //Todo update assertSearch to be able to work with two steps in TC.
-        logic.doReturnToAll();
-        logic.assertSearch();
+        TestLogic testLogic = new TestLogic(driver);
+        testLogic.doSearch();
+        testLogic.assertSearch();
+        testLogic.doImage();       //Todo Add method doImage.
+        testLogic.assertSearchByImage(); //Todo update assertSearch to be able to work with two steps in TC.
+        testLogic.doReturnToAll();
+        testLogic.assertSearch();
 
         //ToDo Review one more time 'implicit' && 'explicit'
 
     }
-
-//  seleniumhq.org
-    //        assertTrue((driver.findElement
-    //        (By.xpath("//*[@class='rc' and contains(.,'https://www.seleniumhq.org/')]"))),"https://www.seleniumhq.org/");
-
 
 }
