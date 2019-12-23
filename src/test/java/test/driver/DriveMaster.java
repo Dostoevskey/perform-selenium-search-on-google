@@ -22,7 +22,7 @@ public class DriveMaster {
             webDriverWait = new WebDriverWait(driver, 10);
             return;
         }
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().version("79.0").setup();
         driver = new ChromeDriver();
         driver.get("https://www.google.com/ncr");
     }

@@ -9,7 +9,7 @@ public class GoogleSearch extends DriveMaster {
     @Test
     public void doFoundSelenium() throws InterruptedException {
         TestLogic testLogic = new TestLogic(driver);
-        testLogic.doSearch();
+        testLogic.doSearch("Selenium");
         testLogic.assertSearch();
         testLogic.doImage();       //Todo Add method doImage.
         testLogic.assertSearchByImage(); //Todo update assertSearch to be able to work with two steps in TC.
