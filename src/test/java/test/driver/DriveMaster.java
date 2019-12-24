@@ -13,16 +13,13 @@ public class DriveMaster {
 
     public WebDriver driver;
 
-    public WebDriverWait webDriverWait;
-
     @BeforeTest(alwaysRun = true)
     public void start() {
         if (threadLocalDriver.get() != null) {
             driver = threadLocalDriver.get();
-            webDriverWait = new WebDriverWait(driver, 10);
             return;
         }
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().version("79.0").setup();
         driver = new ChromeDriver();
         driver.get("https://www.google.com/ncr");
     }
@@ -31,7 +28,6 @@ public class DriveMaster {
     public void stop() {
         if (driver != null) {
             driver.close();
-//            driver.quit();
         }
         driver = null;
     }
